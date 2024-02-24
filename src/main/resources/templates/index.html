@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/head :: head_fragment(title = 'Wine Service', scripts = ~{}, links = ~{})}"></head>
+
+<div th:replace="~{common/header :: header_fragment}"></div>
+
+<body>
+  <h1>This is the home page.</h1>
+  <a th:href="@{/}" class="btn btn-primary">Click</a>
+</body>
+</html>
