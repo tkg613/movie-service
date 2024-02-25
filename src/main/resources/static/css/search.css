@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#search-container {
+  height: 100vh;
+}
+
+#form-container {
+  width: 60%;
+}
+
+#keyword {
+  width: 100%;
+}
+
+button {
+  margin-top: 20px;
+}

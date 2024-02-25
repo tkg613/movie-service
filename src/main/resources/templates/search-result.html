@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{common/head :: head_fragment(title = '検索結果', scripts = ~{}, links = ~{})}"></head>
+
+<div th:replace="~{common/header :: header_fragment}"></div>
+
+<body>
+  <div>
+    <ul th:each="movie : ${movies}">
+      <li th:text="${movie.title}"></li>
+    </ul>
+  </div>
+</body>
+</html>
