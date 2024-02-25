@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.rest.Result;
+import com.example.demo.rest.Movie;
 import com.example.demo.service.MovieService;
 
 import reactor.core.publisher.Mono;
@@ -39,22 +39,10 @@ public class MovieController {
 	@PostMapping(value="/search")
 	public String SearchMovieByKeyword(@RequestParam("keyword") String keyword, Model model) {
 		
-		// "Movies" is the structure of the response itself. "Result" is the structure for the individual movies.
-		// TODO: Change name of Result and Movie. Show results in view. Set config file to hold API key and add in gitignore
-		
-		Mono<List<Result>> moviesMono = movieService.getMovies(keyword);
-        List<Result> movies = moviesMono.block();
+		Mono<List<Movie>> moviesMono = movieService.getMovies(keyword);
+        List<Movie> movies = moviesMono.block();
         model.addAttribute("movies", movies);
         return "search-result";
 	}
-	
-//	@GetMapping(value="/search")
-//	public String displaySearchResult() {
-//		
-//		// Connect to the API with entered search conditions.
-//		// Display the list of results.
-//		
-//		return "";
-//	}
 
 }
