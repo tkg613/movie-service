@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
 .container {
-  margin-top: 15px;
+  padding: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
+.nav-link {
+  text-decoration: none;
+  color: black;
+}

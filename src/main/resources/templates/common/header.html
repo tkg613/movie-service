@@ -1,18 +1,21 @@
 <header xmlns:th="http://www.thymeleaf.org" th:fragment="header_fragment">
-<div class="container">
-  <div class="row">
-  <div class="col">
-    <h3>Movie Service</h3>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">映画システム</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        <i class="bi bi-search"></i>
+          <a class="nav-link" th:href="@{/search}">検索する</a>
+          <a class="nav-link" th:href="@{/}">登録した映画</a>
+          <a class="nav-link" th:href="@{/}">設定</a>
+        </div>
+      </div>
   </div>
-    <div class="col">
-      <a th:href="@{/search}" class="">Search movies</a>
-     </div>
-     <div class="col">
-      <a th:href="@{/}" class="">List of users</a>
-     </div>
-     <div class="col">
-      <a th:href="@{/}" class=""> Settings</a>
-     </div>
-    </div>
+</nav>
+    
   </div>
 </header>

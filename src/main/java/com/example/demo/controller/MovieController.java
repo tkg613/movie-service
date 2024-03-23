@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,17 +32,30 @@ public class MovieController {
 	}
 	
 	/**
-	 * Receive user input from search.html, call getMovies from MovieService, and show search results.
-	 * @param keyword Th user input entered in search.html
+	 * Receive user input from search.html, and send GET request to display the search results.
+	 * @param keyword The user input entered in search.html.
 	 * @param model
 	 * @return 
 	 */
 	@PostMapping(value="/search")
-	public String SearchMovieByKeyword(@RequestParam("keyword") String keyword, Model model) {
+	public String SubmitSearchKeyword(@RequestParam("keyword") String keyword, Model model) {
+		return "redirect:/search/" + keyword;
+	}
+	
+	/**
+	 * Call getMovies from movieService based on the search criteria and pass the result and keyword to the result view.
+	 * @param keyword The user input entered in search.html.
+	 * @param model
+	 * @return
+	 */
+	@GetMapping(value="/search/{keyword}")
+	public String DisplaySearchResults(@PathVariable("keyword") String keyword, Model model) {
 		
 		Mono<List<Movie>> moviesMono = movieService.getMovies(keyword);
         List<Movie> movies = moviesMono.block();
+        
         model.addAttribute("movies", movies);
+        model.addAttribute("keyword", keyword);
         return "search-result";
 	}
 
