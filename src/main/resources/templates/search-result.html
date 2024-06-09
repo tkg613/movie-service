@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="~{common/head :: head_fragment(title = '検索結果', scripts = ~{}, links = ~{})}"></head>
 <link th:href="@{/css/search-result.css}" rel="stylesheet" />
 
@@ -9,7 +8,6 @@
 <body>
   <div class="container">
   
-
   <a th:href="@{/search}" class="btn btn-secondary" style="height: 70%;">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
@@ -18,7 +16,6 @@
   </a>
   <h2 th:object="${keyword}" th:text="'「' + ${keyword} + '」の検索結果...'" class="p-5"></h2>
 
-    
     <div class="row">
       <div th:each="movie: ${movies}" class="card" style="width: 400px;">
         <img class="card-img-top" th:src="'https://image.tmdb.org/t/p/w185/' + ${movie.posterPath}" alt="Card image cap" style="height: 500px">

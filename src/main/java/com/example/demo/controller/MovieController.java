@@ -21,6 +21,15 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 	
+	@GetMapping(value="/")
+	public String index(Model model) {
+		Mono<List<Movie>> moviesMono = movieService.getTrendingMoviesOfDay();
+        List<Movie> movies = moviesMono.block();
+        
+        model.addAttribute("movies", movies);
+		return "index";
+	}
+	
 	/**
 	 * Display the search screen
 	 * @param model
@@ -51,7 +60,7 @@ public class MovieController {
 	@GetMapping(value="/search/{keyword}")
 	public String DisplaySearchResults(@PathVariable("keyword") String keyword, Model model) {
 		
-		Mono<List<Movie>> moviesMono = movieService.getMovies(keyword);
+		Mono<List<Movie>> moviesMono = movieService.getMovieList(keyword);
         List<Movie> movies = moviesMono.block();
         
         model.addAttribute("movies", movies);
