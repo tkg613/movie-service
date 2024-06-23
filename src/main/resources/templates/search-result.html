@@ -22,7 +22,7 @@
         <div class="card-body">
           <h5 class="card-title" th:text="${movie.title}"></h5>
           <p class="card-text" th:text="${movie.overview.length() <= 100} ? ${movie.overview} : ${movie.overview.substring(0, 98)} + '...'"></p>
-          <a href="#" class="btn btn-primary">詳細</a>
+          <a  class="btn btn-primary" th:href="@{/moviedetail}">詳細</a>
         </div>
     </div>
     </div> 

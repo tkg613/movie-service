@@ -68,4 +68,27 @@ public class MovieController {
         return "search-result";
 	}
 
+	/**
+	 * Display the account setteing screen
+	 * @param model
+	 * @return acountsetting.html
+	 */
+	@GetMapping(value="/accountsetting")
+	public String account(Model model) {
+		return "accountsetting";
+	}
+	
+	/**
+	 * Display the Movie Detail screen
+	 * @param model
+	 * @return moviedetail.html
+	 */
+	@GetMapping(value="/moviedetail/{moviename}")
+	public String moviedetail(@PathVariable String moviename, Model model) {
+		 Mono<String> movieDetails = movieService.getMovieDetailsByName(moviename);
+	     model.addAttribute("moviedetail", movieDetails.block());
+		
+		return "moviedetail";
+	}
+	
 }
