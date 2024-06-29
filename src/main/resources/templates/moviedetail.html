@@ -5,11 +5,8 @@
 </head>
 <body>
     <h1>Movie Detail</h1>
-    <div th:if="${moviedetail}">
-        <p th:text="${moviedetail}"></p>
-    </div>
-    <div th:if="${not #strings.isEmpty(moviedetail)}">
-        <p>No details available for this movie.</p>
-    </div>
+    <h3  th:text="${moviedetail}"></h3>
+
+   
 </body>
 </html>
