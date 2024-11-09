@@ -34,6 +34,7 @@ public class MovieController {
 	 * Display the search screen
 	 * @param model
 	 * @return search.html
+	 * hey
 	 */
 	@GetMapping(value="/search")
 	public String displaySearch(Model model) {
